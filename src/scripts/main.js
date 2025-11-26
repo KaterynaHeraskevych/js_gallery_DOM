@@ -6,5 +6,9 @@ const bigImg = document.querySelector('#largeImg');
 list.addEventListener('click', (e) => e.preventDefault(), { capture: true });
 
 list.addEventListener('click', (e) => {
-  bigImg.src = e.target.parentElement.href;
+  if (e.currentTarget.tagName === 'IMG') {
+    bigImg.src = e.target.parentElement.href;
+  } else if (e.currentTarget.tagName === 'A') {
+    bigImg.src = e.currentTarget.href;
+  }
 });
